@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "621326008314",
+    "project_id": "chilli-mood",
+    "storage_bucket": "chilli-mood.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621326008314:android:409b92b47480776432ee43",
+        "android_client_info": {
+          "package_name": "com.isaacpitwa.mood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621326008314-eihvl0dk31q7m589bj1r4i2ovp2g8126.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isaacpitwa.mood",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "621326008314-m21c1tm1borhd7k4ufj5orc82arfo010.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isaacpitwa.mood",
+            "certificate_hash": "3b89c5482e09a895fa991470af1a97cb35bbb61a"
+          }
+        },
+        {
+          "client_id": "621326008314-tam93no80mfberuc04gq6mkk73hsdu0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWfe5rH9HVnKrP-HfrJccL9OgLy10dJr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621326008314-76qsajq3uc0iktnh2uvp74impb5vk86n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "621326008314-1vs4v4mvkgn592aic88r9v2js1ndqhle.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.isaacpitwa.mood"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

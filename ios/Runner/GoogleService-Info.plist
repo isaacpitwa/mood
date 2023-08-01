@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>621326008314-1vs4v4mvkgn592aic88r9v2js1ndqhle.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.621326008314-1vs4v4mvkgn592aic88r9v2js1ndqhle</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>621326008314-eihvl0dk31q7m589bj1r4i2ovp2g8126.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCA1I1qY5v6PNXT0Z5sWPlzmHK6OEuvUCw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>621326008314</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.isaacpitwa.mood</string>
+	<key>PROJECT_ID</key>
+	<string>chilli-mood</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chilli-mood.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:621326008314:ios:e6c677b0b9c2f70632ee43</string>
+</dict>
+</plist>
