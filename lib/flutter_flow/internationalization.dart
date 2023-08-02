@@ -221,10 +221,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // profile
   {
-    '7r5407vi': {
-      'en': 'Switch to Light Mode',
-      'lv': 'Pārslēdzieties uz gaismas režīmu',
-    },
     'albn0ryp': {
       'en': 'Settings',
       'lv': 'Iestatījumi',
@@ -301,25 +297,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'lv':
           'Izveidojot atkārtojumus ar savām reģistrēšanās reizēm,\nvarat uzzināt vairāk par savu noskaņojumu.',
     },
-    '8jyye7ca': {
-      'en': 'Switch to Light Mode',
-      'lv': 'Pārslēdzieties uz gaismas režīmu',
-    },
     'rs9eiz66': {
       'en': 'Daily Reminders',
       'lv': 'Ikdienas atgādinājumi',
-    },
-    'ujrf2lea': {
-      'en': '8:00',
-      'lv': '8:00',
-    },
-    'xhyk8xih': {
-      'en': '10:00',
-      'lv': '10:00',
-    },
-    'bdqdo8ba': {
-      'en': '12:00',
-      'lv': '12:00',
     },
     '1i6bbxfh': {
       'en': '__',
@@ -331,20 +311,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'x27fod7o': {
       'en': 'Insights',
       'lv': 'Ieskati',
-    },
-    'f7mgnajd': {
-      'en': 'Today, 29th July',
-      'lv': 'Šodien, 29. jūlijā',
-    },
-    'h63afqia': {
-      'en': 'Super Furious',
-      'lv': 'Super Furious',
-    },
-    'dm5il3e5': {
-      'en':
-          'Beacause of work presure, Bike Puncher, \nstuck in traffic and mood-off.',
-      'lv':
-          'Darba spiediena dēļ, Bike Puncher,\niestrēdzis satiksmē un noskaņots.',
     },
     '85jgqsry': {
       'en': 'Mood analysis',
@@ -374,6 +340,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'How your mood changes over time.',
       'lv': 'Kā laika gaitā mainās jūsu garastāvoklis.',
     },
+    'd5pu64da': {
+      'en': 'Date',
+      'lv': '',
+    },
+    'bmj0i6w0': {
+      'en': 'Mood',
+      'lv': '',
+    },
     'rbmdj1js': {
       'en': 'Insights',
       'lv': 'Ieskats',
@@ -388,6 +362,38 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'cjd7z75i': {
       'en': 'Select mood that reflects the most how  you are feeling.',
       'lv': 'Izvēlieties noskaņojumu, kas visvairāk atspoguļo jūsu pašsajūtu.',
+    },
+    '120tzfcj': {
+      'en': '🤩',
+      'lv': '',
+    },
+    'omf3hhvd': {
+      'en': '😍',
+      'lv': '',
+    },
+    '9zsmqn29': {
+      'en': '🥺',
+      'lv': '',
+    },
+    'kiw4xsyq': {
+      'en': '🤮',
+      'lv': '',
+    },
+    'wu3njcvo': {
+      'en': '😡',
+      'lv': '',
+    },
+    '5pdhngf2': {
+      'en': '🤩',
+      'lv': '',
+    },
+    'vvnxhwdc': {
+      'en': 'Please select...',
+      'lv': '',
+    },
+    '3zlxyqw2': {
+      'en': 'Search for an item...',
+      'lv': '',
     },
     '8xiz7zh1': {
       'en': 'How would you describe your condition?',
@@ -412,47 +418,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Dashboard',
       'lv': 'Mērinstrumentu panelis',
     },
-    '8u3z49to': {
+    '3d7onptp': {
       'en': 'MOOD CHECK',
       'lv': 'MOST PĀRBAUDE',
-    },
-    'o8iol3s9': {
-      'en': 'Today at 14:40',
-      'lv': 'Šodien 14:40',
-    },
-    '3jvazlis': {
-      'en': 'You’re in Bad Mood Today ',
-      'lv': 'Jums šodien ir slikts garastāvoklis',
-    },
-    'fsohhprb': {
-      'en':
-          'It’s normal for readiness to take a dive in daytime, but keep an eye on it so that it doesn’t drop low.',
-      'lv':
-          'Gatavība nirt dienas laikā ir normāli, taču sekojiet tam līdzi, lai tā nenokristu zemu.',
     },
     'rb1w0poa': {
       'en': 'Recommended Activities',
       'lv': 'Ieteicamās aktivitātes',
     },
-    'w0tf42yt': {
-      'en': 'Music',
-      'lv': 'Mūzika',
-    },
-    '91opisys': {
-      'en': 'Gym',
-      'lv': 'sporta zāle',
-    },
-    'p82n2rd1': {
-      'en': 'Game',
-      'lv': 'Spēle',
-    },
-    '82arqiiy': {
-      'en': 'Music',
-      'lv': 'Mūzika',
-    },
     'lyo3pd71': {
       'en': 'Dashboard',
       'lv': 'Mērinstrumentu panelis',
+    },
+  },
+  // AddReminder
+  {
+    'jm7o6u1n': {
+      'en': 'Time',
+      'lv': '',
+    },
+    '28mu456a': {
+      'en': 'Add Reminder',
+      'lv': '',
+    },
+    'dbbi1otq': {
+      'en': 'Home',
+      'lv': '',
     },
   },
   // SocialContacts
@@ -464,6 +455,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'vewlozao': {
       'en': 'Get more useful information\non our social network',
       'lv': 'Iegūstiet vairāk noderīgas informācijas\nmūsu sociālajā tīklā',
+    },
+  },
+  // CreatedMoodWidget
+  {
+    'z198tjvu': {
+      'en': ' Activities to do in  this mood',
+      'lv': '',
+    },
+  },
+  // EmptyMoodRecord
+  {
+    'mbyc8lkt': {
+      'en': 'MOOD CHECK',
+      'lv': 'MOST PĀRBAUDE',
+    },
+    'qf59h6kw': {
+      'en': 'You’re have no mood record.',
+      'lv': 'Jums šodien ir slikts garastāvoklis',
+    },
+    'ubrfx7st': {
+      'en':
+          'Tracking your mood empowers self-awareness, Understanding leads to positive change, Embrace the journey of self-discovery.',
+      'lv':
+          'Gatavība nirt dienas laikā ir normāli, taču sekojiet tam līdzi, lai tā nenokristu zemu.',
     },
   },
   // Miscellaneous
