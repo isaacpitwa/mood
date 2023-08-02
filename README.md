@@ -12,7 +12,26 @@ The Mood Tracking App is built using the following technologies:
 
 - [FlutterFlow](https://www.flutterflow.com/): A low-code platform for building beautiful and functional Flutter apps.
 - [Firebase](https://firebase.google.com/): A comprehensive suite of cloud-based tools and services for app development.
+- [Flutter](https://github.com/): 
+- [Figma](https://flutter.dev/): 
 
+## Features
+
+- Google Authentication
+- Apple Sign In
+- Email Sign In
+- Add Mood Tracking
+- Motivation Quote for getting started with improving user's mood
+- Mood Insights over a variety of user specified timelines
+- Daily Reminders to log user Mood
+- etc.
+
+
+## Resources
+
+- Technical Design  Documentation TDD [link](https://docs.google.com/document/d/1UnZw8JjVdg00MxnqAt2d1OpaleeaR-YhvM51AU_Gv6w/edit?usp=sharing)
+- User Stories Document [link](https://docs.google.com/document/d/1t4eTSwdqMvu-IHw96VNeDEIrqZL4nd0zQSqqm2Q3DwM/edit?usp=sharing)
+- User Interface Design [link](https://www.figma.com/file/6TwOCq1xC3EhS9BWvsipJF/Mood?type=design&node-id=145%3A2314&mode=design&t=sH4nW22iz04REufD-1)
 ## Local Development
 
 To run the Mood Tracking App locally on your machine, follow the steps below:
