@@ -1,6 +1,6 @@
 # Mood 
 
-![App Screenshot](app_screenshot.png)
+![App Screenshot](banner.png)
 
 ## Description
 
