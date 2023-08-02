@@ -46,6 +46,16 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "reminders" field.
+  bool? _reminders;
+  bool get reminders => _reminders ?? false;
+  bool hasReminders() => _reminders != null;
+
+  // "updatedAt" field.
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _updatedAt;
+  bool hasUpdatedAt() => _updatedAt != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -53,6 +63,8 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _reminders = snapshotData['reminders'] as bool?;
+    _updatedAt = snapshotData['updatedAt'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -95,6 +107,8 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  bool? reminders,
+  DateTime? updatedAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,6 +118,8 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
+      'reminders': reminders,
+      'updatedAt': updatedAt,
     }.withoutNulls,
   );
 
@@ -120,7 +136,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.reminders == e2?.reminders &&
+        e1?.updatedAt == e2?.updatedAt;
   }
 
   @override
@@ -130,7 +148,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.reminders,
+        e?.updatedAt
       ]);
 
   @override

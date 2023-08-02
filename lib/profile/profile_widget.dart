@@ -205,37 +205,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.notifications_none,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 24.0,
-                    ),
-                    title: Text(
-                      FFLocalizations.of(context).getText(
-                        '7ujww8a6' /* Notfications */,
-                      ),
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Poppins',
-                            color: FlutterFlowTheme.of(context).primaryText,
-                          ),
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 20.0,
-                    ),
-                    tileColor: FlutterFlowTheme.of(context).accent4,
-                    dense: false,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(10.0),
-                        topRight: Radius.circular(10.0),
-                      ),
-                    ),
-                  ),
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -276,6 +245,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       tileColor: FlutterFlowTheme.of(context).accent4,
                       dense: false,
                     ),
+                  ),
+                  FlutterFlowLanguageSelector(
+                    width: double.infinity,
+                    backgroundColor: FlutterFlowTheme.of(context).accent4,
+                    borderColor: Colors.transparent,
+                    dropdownIconColor: FlutterFlowTheme.of(context).primaryText,
+                    borderRadius: 0.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    hideFlags: false,
+                    flagSize: 24.0,
+                    flagTextGap: 28.0,
+                    currentLanguage: FFLocalizations.of(context).languageCode,
+                    languages: FFLocalizations.languages(),
+                    onChanged: (lang) => setAppLanguage(context, lang),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -330,23 +313,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     fontFamily: 'Poppins',
                     color: FlutterFlowTheme.of(context).primaryText,
                   ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-            child: FlutterFlowLanguageSelector(
-              width: double.infinity,
-              backgroundColor: FlutterFlowTheme.of(context).accent4,
-              borderColor: Colors.transparent,
-              dropdownIconColor: FlutterFlowTheme.of(context).primaryText,
-              borderRadius: 8.0,
-              textStyle: FlutterFlowTheme.of(context).bodyMedium,
-              hideFlags: false,
-              flagSize: 24.0,
-              flagTextGap: 8.0,
-              currentLanguage: FFLocalizations.of(context).languageCode,
-              languages: FFLocalizations.languages(),
-              onChanged: (lang) => setAppLanguage(context, lang),
             ),
           ),
           wrapWithModel(

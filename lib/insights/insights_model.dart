@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +20,6 @@ class InsightsModel extends FlutterFlowModel {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  List<MoodDataRecord>? chartMoodDataRecordListPreviousSnapshot;
   // Model for EmptyMoodRecord component.
   late EmptyMoodRecordModel emptyMoodRecordModel;
   // Model for SocialContacts component.

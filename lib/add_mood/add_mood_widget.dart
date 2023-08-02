@@ -139,9 +139,9 @@ class _AddMoodWidgetState extends State<AddMoodWidget> {
                       child: FlutterFlowDropDown<int>(
                         controller: _model.dropDownValueController ??=
                             FormFieldController<int>(
-                          _model.dropDownValue ??= 1,
+                          _model.dropDownValue ??= 4,
                         ),
-                        options: [1, 2, 3, 4, 5],
+                        options: [4, 3, 2, 1, 5],
                         optionLabels: [
                           FFLocalizations.of(context).getText(
                             'omf3hhvd' /* 😍 */,
