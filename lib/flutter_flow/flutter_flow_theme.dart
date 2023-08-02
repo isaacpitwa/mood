@@ -54,6 +54,8 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color whiiteColor;
+
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
   @Deprecated('Use displaySmall instead')
@@ -127,12 +129,12 @@ class LightModeTheme extends FlutterFlowTheme {
 
   late Color primary = const Color(0xFFFF023F);
   late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
+  late Color tertiary = const Color(0xFF011930);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF011930);
   late Color secondaryText = const Color(0xFFAAAAAA);
   late Color primaryBackground = const Color(0xFFEDF1F3);
-  late Color secondaryBackground = const Color(0xFFEDF1F3);
+  late Color secondaryBackground = const Color(0xFFFFFFFF);
   late Color accent1 = const Color(0x4C4B39EF);
   late Color accent2 = const Color(0x4D39D2C0);
   late Color accent3 = const Color(0x4DEE8B60);
@@ -141,6 +143,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color whiiteColor = Color(0xFFFFFFFF);
 }
 
 abstract class Typography {
@@ -298,7 +302,7 @@ class DarkModeTheme extends FlutterFlowTheme {
 
   late Color primary = const Color(0xFFFF023F);
   late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
+  late Color tertiary = const Color(0xFFFFFFFF);
   late Color alternate = const Color(0xFF262D34);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
@@ -312,6 +316,8 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color whiiteColor = Color(0xFFFFFFFF);
 }
 
 extension TextStyleHelper on TextStyle {

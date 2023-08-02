@@ -7,3 +7,4 @@ export '/daily_reminders/daily_reminders_widget.dart' show DailyRemindersWidget;
 export '/insights/insights_widget.dart' show InsightsWidget;
 export '/add_mood/add_mood_widget.dart' show AddMoodWidget;
 export '/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/add_reminder/add_reminder_widget.dart' show AddReminderWidget;

@@ -21,14 +21,44 @@ class MoodDataRecord extends FirestoreRecord {
   DateTime? get date => _date;
   bool hasDate() => _date != null;
 
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
+
+  // "user_id" field.
+  DocumentReference? _userId;
+  DocumentReference? get userId => _userId;
+  bool hasUserId() => _userId != null;
+
   // "mood" field.
   int? _mood;
   int get mood => _mood ?? 0;
   bool hasMood() => _mood != null;
 
+  // "label" field.
+  String? _label;
+  String get label => _label ?? '';
+  bool hasLabel() => _label != null;
+
+  // "emoji" field.
+  String? _emoji;
+  String get emoji => _emoji ?? '';
+  bool hasEmoji() => _emoji != null;
+
+  // "day" field.
+  int? _day;
+  int get day => _day ?? 0;
+  bool hasDay() => _day != null;
+
   void _initializeFields() {
     _date = snapshotData['date'] as DateTime?;
+    _description = snapshotData['description'] as String?;
+    _userId = snapshotData['user_id'] as DocumentReference?;
     _mood = castToType<int>(snapshotData['mood']);
+    _label = snapshotData['label'] as String?;
+    _emoji = snapshotData['emoji'] as String?;
+    _day = castToType<int>(snapshotData['day']);
   }
 
   static CollectionReference get collection =>
@@ -67,12 +97,22 @@ class MoodDataRecord extends FirestoreRecord {
 
 Map<String, dynamic> createMoodDataRecordData({
   DateTime? date,
+  String? description,
+  DocumentReference? userId,
   int? mood,
+  String? label,
+  String? emoji,
+  int? day,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'date': date,
+      'description': description,
+      'user_id': userId,
       'mood': mood,
+      'label': label,
+      'emoji': emoji,
+      'day': day,
     }.withoutNulls,
   );
 
@@ -84,11 +124,25 @@ class MoodDataRecordDocumentEquality implements Equality<MoodDataRecord> {
 
   @override
   bool equals(MoodDataRecord? e1, MoodDataRecord? e2) {
-    return e1?.date == e2?.date && e1?.mood == e2?.mood;
+    return e1?.date == e2?.date &&
+        e1?.description == e2?.description &&
+        e1?.userId == e2?.userId &&
+        e1?.mood == e2?.mood &&
+        e1?.label == e2?.label &&
+        e1?.emoji == e2?.emoji &&
+        e1?.day == e2?.day;
   }
 
   @override
-  int hash(MoodDataRecord? e) => const ListEquality().hash([e?.date, e?.mood]);
+  int hash(MoodDataRecord? e) => const ListEquality().hash([
+        e?.date,
+        e?.description,
+        e?.userId,
+        e?.mood,
+        e?.label,
+        e?.emoji,
+        e?.day
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is MoodDataRecord;

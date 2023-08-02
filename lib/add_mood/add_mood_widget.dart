@@ -1,10 +1,19 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/created_mood_widget_widget.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:aligned_dialog/aligned_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'add_mood_model.dart';
 export 'add_mood_model.dart';
@@ -38,6 +47,8 @@ class _AddMoodWidgetState extends State<AddMoodWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: WillPopScope(
@@ -123,14 +134,58 @@ class _AddMoodWidgetState extends State<AddMoodWidget> {
                       height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(16.0),
                       ),
-                      child: Container(
-                        width: double.infinity,
-                        height: 150.0,
-                        child: custom_widgets.ScrollViewEmojiWidget(
-                          width: double.infinity,
-                          height: 150.0,
+                      child: FlutterFlowDropDown<int>(
+                        controller: _model.dropDownValueController ??=
+                            FormFieldController<int>(
+                          _model.dropDownValue ??= 1,
                         ),
+                        options: [1, 2, 3, 4, 5],
+                        optionLabels: [
+                          FFLocalizations.of(context).getText(
+                            'omf3hhvd' /* 😍 */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            '9zsmqn29' /* 🥺 */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            'kiw4xsyq' /* 🤮 */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            'wu3njcvo' /* 😡 */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            '5pdhngf2' /* 🤩 */,
+                          )
+                        ],
+                        onChanged: (val) =>
+                            setState(() => _model.dropDownValue = val),
+                        width: 300.0,
+                        height: 40.0,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 40.0,
+                                ),
+                        hintText: FFLocalizations.of(context).getText(
+                          'vvnxhwdc' /* Please select... */,
+                        ),
+                        icon: Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        elevation: 2.0,
+                        borderColor: FlutterFlowTheme.of(context).alternate,
+                        borderWidth: 2.0,
+                        borderRadius: 8.0,
+                        margin: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 4.0, 16.0, 4.0),
+                        hidesUnderline: true,
+                        isSearchable: false,
                       ),
                     ),
                   ),
@@ -149,7 +204,7 @@ class _AddMoodWidgetState extends State<AddMoodWidget> {
                     width: 100.0,
                     height: 155.0,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
@@ -182,34 +237,80 @@ class _AddMoodWidgetState extends State<AddMoodWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '967mdk84' /* Save your mood */,
-                      ),
-                      options: FFButtonOptions(
-                        height: 45.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.normal,
+                  Builder(
+                    builder: (context) => Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 28.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          await MoodDataRecord.collection.doc().set({
+                            ...createMoodDataRecordData(
+                              description: _model.textController.text,
+                              mood: _model.dropDownValue,
+                              userId: currentUserReference,
+                              day: functions.dayToNumber(getCurrentTimestamp),
+                            ),
+                            'date': FieldValue.serverTimestamp(),
+                          });
+                          showAlignedDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            isGlobal: true,
+                            avoidOverflow: false,
+                            targetAnchor: AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            followerAnchor: AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            builder: (dialogContext) {
+                              return Material(
+                                color: Colors.transparent,
+                                child: GestureDetector(
+                                  onTap: () => FocusScope.of(context)
+                                      .requestFocus(_model.unfocusNode),
+                                  child: Container(
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.64,
+                                    width: double.infinity,
+                                    child: CreatedMoodWidgetWidget(
+                                      mood: _model.dropDownValue,
+                                    ),
+                                  ),
                                 ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+
+                          _model.soundPlayer ??= AudioPlayer();
+                          if (_model.soundPlayer!.playing) {
+                            await _model.soundPlayer!.stop();
+                          }
+                          _model.soundPlayer!.setVolume(1.0);
+                          await _model.soundPlayer!
+                              .setAsset('assets/audios/fail-144746.mp3')
+                              .then((_) => _model.soundPlayer!.play());
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          '967mdk84' /* Save your mood */,
                         ),
-                        borderRadius: BorderRadius.circular(50.0),
+                        options: FFButtonOptions(
+                          height: 45.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
                       ),
                     ),
                   ),
