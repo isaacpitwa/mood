@@ -23,7 +23,9 @@ The Mood Tracking App is built using the following technologies:
 - Add Mood Tracking
 - Motivation Quote for getting started with improving user's mood
 - Mood Insights over a variety of user specified timelines
-- Daily Reminders to log user Mood
+- Daily Reminders to log user Mood using FCM Notifications
+- Localization 
+- DarkTheme/LightTheme Accessibility
 - etc.
 
 
