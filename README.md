@@ -12,8 +12,9 @@ The Mood Tracking App is built using the following technologies:
 
 - [FlutterFlow](https://www.flutterflow.com/): A low-code platform for building beautiful and functional Flutter apps.
 - [Firebase](https://firebase.google.com/): A comprehensive suite of cloud-based tools and services for app development.
-- [Flutter](https://github.com/): 
-- [Figma](https://flutter.dev/): 
+- [Flutter](https://flutter.dev/): Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows.
+- [Figma](https://figma.com/): Figma is a collaborative web application for interface design, with additional offline features enabled by desktop applications for macOS and Windows.
+- Dart
 
 ## Features
 
