@@ -120,7 +120,6 @@ final parametersBuilderMap =
   'Insights': ParameterData.none(),
   'AddMood': ParameterData.none(),
   'dashboard': ParameterData.none(),
-  'AddReminder': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

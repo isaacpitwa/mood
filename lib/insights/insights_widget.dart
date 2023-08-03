@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -175,16 +173,16 @@ class _InsightsWidgetState extends State<InsightsWidget> {
                                   ),
                                   Text(
                                     () {
-                                      if (listViewMoodDataRecord?.mood == 1) {
+                                      if (listViewMoodDataRecord?.mood == 4) {
                                         return 'Super Lovely';
                                       } else if (listViewMoodDataRecord?.mood ==
-                                          2) {
+                                          3) {
                                         return 'Sad';
                                       } else if (listViewMoodDataRecord?.mood ==
-                                          3) {
+                                          2) {
                                         return 'Frustrated';
                                       } else if (listViewMoodDataRecord?.mood ==
-                                          4) {
+                                          1) {
                                         return 'Super Furious';
                                       } else {
                                         return 'Super Excited';
@@ -216,172 +214,162 @@ class _InsightsWidgetState extends State<InsightsWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 10.0, 20.0, 20.0),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(16.0),
+                          child: StreamBuilder<List<MoodDataRecord>>(
+                            stream: queryMoodDataRecord(
+                              queryBuilder: (moodDataRecord) => moodDataRecord
+                                  .where('user_id',
+                                      isEqualTo: currentUserReference)
+                                  .where('date',
+                                      isGreaterThanOrEqualTo:
+                                          functions.sevenDaysBack()),
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitCircle(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<MoodDataRecord> containerMoodDataRecordList =
+                                  snapshot.data!;
+                              return Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 16.0, 16.0),
+                                  child: Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Column(
+                                      Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '85jgqsry' /* Mood analysis */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyLarge
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '85jgqsry' /* Mood analysis */,
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                      FlutterFlowDropDown<String>(
-                                        controller:
-                                            _model.dropDownValueController ??=
+                                          FlutterFlowDropDown<String>(
+                                            controller: _model
+                                                    .dropDownValueController ??=
                                                 FormFieldController<String>(
-                                          _model.dropDownValue ??=
+                                              _model.dropDownValue ??=
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                't8566tgl' /* Last Week */,
+                                              ),
+                                            ),
+                                            options: [
                                               FFLocalizations.of(context)
                                                   .getText(
-                                            't8566tgl' /* Last Week */,
-                                          ),
-                                        ),
-                                        options: [
-                                          FFLocalizations.of(context).getText(
-                                            '59qtsdtp' /* Last Week */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'rmna9zr3' /* Last Month */,
-                                          )
-                                        ],
-                                        onChanged: (val) => setState(
-                                            () => _model.dropDownValue = val),
-                                        width: 103.0,
-                                        height: 30.0,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
+                                                '59qtsdtp' /* Last Week */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'rmna9zr3' /* Last Month */,
+                                              )
+                                            ],
+                                            onChanged: (val) => setState(() =>
+                                                _model.dropDownValue = val),
+                                            width: 103.0,
+                                            height: 30.0,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                    ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'd5clr4bd' /* Please select... */,
+                                            ),
+                                            icon: Icon(
+                                              Icons.keyboard_arrow_down_rounded,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
+                                              size: 24.0,
                                             ),
-                                        hintText:
-                                            FFLocalizations.of(context).getText(
-                                          'd5clr4bd' /* Please select... */,
-                                        ),
-                                        icon: Icon(
-                                          Icons.keyboard_arrow_down_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                        fillColor: Color(0x00EDF1F3),
-                                        elevation: 0.0,
-                                        borderColor: Color(0x00AAAAAA),
-                                        borderWidth: 0.0,
-                                        borderRadius: 4.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 4.0),
-                                        hidesUnderline: true,
-                                        isSearchable: false,
+                                            fillColor: Color(0x00EDF1F3),
+                                            elevation: 0.0,
+                                            borderColor: Color(0x00AAAAAA),
+                                            borderWidth: 0.0,
+                                            borderRadius: 4.0,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 0.0, 4.0),
+                                            hidesUnderline: true,
+                                            isSearchable: false,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'f9nmfwan' /* How your mood changes over tim... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14.0,
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'f9nmfwan' /* How your mood changes over tim... */,
                                         ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 28.0, 0.0, 0.0),
-                                    child: StreamBuilder<List<MoodDataRecord>>(
-                                      stream: queryMoodDataRecord(
-                                        queryBuilder: (moodDataRecord) =>
-                                            moodDataRecord
-                                                .where(
-                                                    'user_id',
-                                                    isEqualTo:
-                                                        currentUserReference)
-                                                .where('date',
-                                                    isLessThan: functions
-                                                        .sevenDaysBack()),
-                                      )..listen((snapshot) async {
-                                          List<MoodDataRecord>
-                                              chartMoodDataRecordList =
-                                              snapshot;
-                                          if (_model.chartMoodDataRecordListPreviousSnapshot !=
-                                                  null &&
-                                              !const ListEquality(
-                                                      MoodDataRecordDocumentEquality())
-                                                  .equals(
-                                                      chartMoodDataRecordList,
-                                                      _model
-                                                          .chartMoodDataRecordListPreviousSnapshot)) {
-                                            await queryMoodDataRecordOnce();
-
-                                            setState(() {});
-                                          }
-                                          _model.chartMoodDataRecordListPreviousSnapshot =
-                                              snapshot;
-                                        }),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitCircle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
-                                              ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 14.0,
                                             ),
-                                          );
-                                        }
-                                        List<MoodDataRecord>
-                                            chartMoodDataRecordList =
-                                            snapshot.data!;
-                                        return Container(
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 28.0, 0.0, 0.0),
+                                        child: Container(
                                           width: double.infinity,
                                           height: 350.0,
                                           child: FlutterFlowLineChart(
                                             data: [
                                               FFLineChartData(
-                                                xData: chartMoodDataRecordList
-                                                    .map((d) => d.day)
-                                                    .toList(),
-                                                yData: chartMoodDataRecordList
-                                                    .map((d) => d.mood)
-                                                    .toList(),
+                                                xData:
+                                                    containerMoodDataRecordList
+                                                        .map((d) => d.day)
+                                                        .toList(),
+                                                yData:
+                                                    containerMoodDataRecordList
+                                                        .map((d) => d.mood)
+                                                        .toList(),
                                                 settings: LineChartBarData(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -415,13 +403,13 @@ class _InsightsWidgetState extends State<InsightsWidget> {
                                               ),
                                             ),
                                           ),
-                                        );
-                                      },
-                                    ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],

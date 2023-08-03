@@ -225,10 +225,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Settings',
       'lv': 'Iestatījumi',
     },
-    '7ujww8a6': {
-      'en': 'Notfications',
-      'lv': 'Paziņojumi',
-    },
     'wnlzpy9i': {
       'en': 'Reminders',
       'lv': 'Atgādinājumi',
@@ -348,6 +344,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Mood',
       'lv': '',
     },
+    'jrurwhhp': {
+      'en': 'Point',
+      'lv': '',
+    },
     'rbmdj1js': {
       'en': 'Insights',
       'lv': 'Ieskats',
@@ -429,21 +429,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'lyo3pd71': {
       'en': 'Dashboard',
       'lv': 'Mērinstrumentu panelis',
-    },
-  },
-  // AddReminder
-  {
-    'jm7o6u1n': {
-      'en': 'Time',
-      'lv': '',
-    },
-    '28mu456a': {
-      'en': 'Add Reminder',
-      'lv': '',
-    },
-    'dbbi1otq': {
-      'en': 'Home',
-      'lv': '',
     },
   },
   // SocialContacts

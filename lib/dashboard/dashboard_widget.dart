@@ -289,19 +289,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             () {
                                               if (listViewMoodDataRecord
                                                       ?.mood ==
-                                                  1) {
+                                                  4) {
                                                 return 'https://firebasestorage.googleapis.com/v0/b/chilli-mood.appspot.com/o/Assets%2Femoji.png?alt=media&token=d800c1cf-a413-4388-8ab7-885bc6c9e839';
                                               } else if (listViewMoodDataRecord
                                                       ?.mood ==
-                                                  2) {
+                                                  3) {
                                                 return 'https://firebasestorage.googleapis.com/v0/b/chilli-mood.appspot.com/o/Assets%2Femoji%20(2).png?alt=media&token=b3e42614-a71d-490b-8d8e-71858bee4f23';
                                               } else if (listViewMoodDataRecord
                                                       ?.mood ==
-                                                  3) {
+                                                  2) {
                                                 return 'https://firebasestorage.googleapis.com/v0/b/chilli-mood.appspot.com/o/Assets%2Femoji%20(1).png?alt=media&token=3f9e2dbc-112b-438b-b2a4-dde4fe50b401';
                                               } else if (listViewMoodDataRecord
                                                       ?.mood ==
-                                                  4) {
+                                                  1) {
                                                 return 'https://firebasestorage.googleapis.com/v0/b/chilli-mood.appspot.com/o/Assets%2Fangry.png?alt=media&token=e925c638-e8d6-4ffe-addb-69c75ec6df40';
                                               } else {
                                                 return 'https://firebasestorage.googleapis.com/v0/b/chilli-mood.appspot.com/o/Assets%2Fstar%201.png?alt=media&token=92083418-b4a8-47b1-9478-75571918ef04';
@@ -320,19 +320,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       child: Text(
                                         () {
                                           if (listViewMoodDataRecord?.mood ==
-                                              1) {
+                                              4) {
                                             return 'You’re in Grateful Mood  ';
                                           } else if (listViewMoodDataRecord
                                                   ?.mood ==
-                                              2) {
+                                              3) {
                                             return 'You’re in  Lonely  Mood  ';
                                           } else if (listViewMoodDataRecord
                                                   ?.mood ==
-                                              3) {
+                                              2) {
                                             return 'You’re in Frustrated  Mood  ';
                                           } else if (listViewMoodDataRecord
                                                   ?.mood ==
-                                              4) {
+                                              1) {
                                             return 'You’re in  Angry  Mood  ';
                                           } else {
                                             return 'You’re in Excited  Mood  ';

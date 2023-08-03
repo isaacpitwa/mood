@@ -133,11 +133,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'dashboard')
               : DashboardWidget(),
-        ),
-        FFRoute(
-          name: 'AddReminder',
-          path: '/addReminder',
-          builder: (context, params) => AddReminderWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
