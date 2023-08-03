@@ -4,15 +4,18 @@
 
 ## Description
 
-Mood  is a user-friendly mobile application designed to help users log their moods at different times of the day and gain insights into their emotional well-being. It provides an intuitive interface for mood logging, trend analysis, reminders, and mood-related tips. Users can easily track their moods, view mood trends over days, weeks, and months, set reminders to log their moods, and receive helpful tips to improve their mood based on their mood history.
+Mood  is a user-friendly mobile application designed to help users log their moods at different times of the day and gain insights into their emotional well-being. It provides an intuitive interface for mood logging, trend analysis, reminders, and mood-related tips. Users can easily track their moods, view mood trends over days, weeks, and months, set reminders to log their moods and receive helpful tips to improve their mood based on their mood history.
+
+## Demo:
+To quickly experience the magic of this software, check out the demo video provided. It showcases some of the key features and functionalities, allowing you to get a glimpse of its capabilities. Watch the demo video [here](https://www.loom.com/share/e06bc4af5ec943f5b38c654d8e1bc500?sid=e4615e97-27a3-47e7-974b-28572d79be8f) to see mood in action.
 
 ## Tech Stacks
 
-The Mood Tracking App is built using the following technologies:
+The Mood  is built using the following technologies:
 
 - [FlutterFlow](https://www.flutterflow.com/): A low-code platform for building beautiful and functional Flutter apps.
 - [Firebase](https://firebase.google.com/): A comprehensive suite of cloud-based tools and services for app development.
-- [Flutter](https://flutter.dev/): Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows.
+- [Flutter](https://flutter.dev/): Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows.
 - [Figma](https://figma.com/): Figma is a collaborative web application for interface design, with additional offline features enabled by desktop applications for macOS and Windows.
 - Dart
 
@@ -22,8 +25,8 @@ The Mood Tracking App is built using the following technologies:
 - Apple Sign In
 - Email Sign In
 - Add Mood Tracking
-- Motivation Quote for getting started with improving user's mood
-- Mood Insights over a variety of user specified timelines
+- Motivation Quote for getting started with improving the user's mood
+- Mood Insights over a variety of user-specified timelines
 - Daily Reminders to log user Mood using FCM Notifications
 - Localization 
 - DarkTheme/LightTheme Accessibility
